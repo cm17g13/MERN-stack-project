@@ -8,17 +8,20 @@ import { connectDB } from "../config/db.js";
 import dotenv from "dotenv";
 
 dotenv.config();
-console.log(process.env.MONGO_URI);
+//console.log(process.env.MONGO_URI);
 
 const app = express();
+const port = process.env.PORT || 5001
 
 connectDB();
 
+//middleware that breakes down the request into json
+app.use(express.json());
 app.use("/api/notes", notesRoutes);
 
 
 
 
-app.listen(5001, () => {
-    console.log(`this is running`)
+app.listen(port, () => {
+    console.log(`this is running on port: ${port}`)
 });
