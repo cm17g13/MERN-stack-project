@@ -1,0 +1,23 @@
+import mongoose from "mongoose";
+
+// 1. create a schema
+// 2. create model from schema
+
+// the formats of the data stored in mongodb
+const noteSchema = new mongoose.Schema(
+    {
+        title: {
+            type: String,
+            required: true,
+        },
+        content: {
+            type: String,
+            required: true,
+        }
+    },
+    { timestamps: true }
+);
+
+const Note = mongoose.model("Note", noteSchema)
+
+export default Note;
