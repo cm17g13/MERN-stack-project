@@ -11,6 +11,3 @@ export const connectDB = async () => {
         process.exit(1);
     }
 }
-
-//uKWCJ3TCeWaoZFsa
-//mongodb+srv://callummcgregor50_db_user:uKWCJ3TCeWaoZFsa@cluster0.hcoqgcb.mongodb.net/?appName=Cluster0
