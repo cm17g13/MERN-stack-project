@@ -8,8 +8,23 @@ import Note from "../models/Note.js";
 export async function getAllNotes(req, res) {
   //res.status(200).send("You have fetched all the notes");
   try {
-    const notes = await Note.find();
+    //Created order
+    //const notes = await Note.find();
+    //Most recent first 
+    const notes = await Note.find().sort({ createdAt: -1 });
     res.status(200).json(notes);
+  } catch (error) {
+    console.log("Error in getAllNotes method", error);
+    res.status(500).json({ message: "Interal server error" });
+  }
+}
+
+export async function getNoteByID(req, res) {
+  //res.status(200).send("You have fetched all the notes");
+  try {
+    const id = req.params.id;
+    const note = await Note.findById(id);
+    res.status(200).json(note);
   } catch (error) {
     console.log("Error in getAllNotes method", error);
     res.status(500).json({ message: "Interal server error" });

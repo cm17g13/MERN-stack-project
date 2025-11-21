@@ -17,9 +17,13 @@ connectDB();
 
 //middleware that breakes down the request into json
 app.use(express.json());
+
+app.use((req, res, next) => {
+    console.log(`req method ${req.method}, to req url ${req.url}`),
+    next();
+});
+
 app.use("/api/notes", notesRoutes);
-
-
 
 
 app.listen(port, () => {
