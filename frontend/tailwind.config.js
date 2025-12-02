@@ -11,7 +11,10 @@ export default {
   },
   plugins: [daisyui],
   daisyui: {
-    themes: ["light", "dark", "synthwave", "acid", "lemonade", "sunset"],
+    //npm run dev has to be restarted for config changes to take effect
+    //themes: ["light", "dark", "synthwave", "acid", "lemonade", "sunset"],
+    themes: ["acid", "dracula", "sunset", "synthwave", "lemonade"],  
+    darkTheme: "dracula",
   }
 }
 

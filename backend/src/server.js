@@ -21,13 +21,16 @@ app.use((req, res, next) => {
     console.log(`req method ${req.method}, to req url ${req.url}`), next();
 });
 
-//added rateLimiter before routes
-app.use(ratelimiter);
+//Lets the backend be called by the frontend without cors issues
 app.use(
     cors({
         origin: "http://localhost:5173",
     })
 );
+
+//added rateLimiter before routes
+app.use(ratelimiter);
+
 
 //add the nodesRoutes to the api
 app.use("/api/notes", notesRoutes);
