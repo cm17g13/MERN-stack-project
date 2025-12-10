@@ -18,26 +18,25 @@ const port = process.env.PORT || 5001;
 app.use(express.json());
 //example of custom middleware
 app.use((req, res, next) => {
-    console.log(`req method ${req.method}, to req url ${req.url}`), next();
+	console.log(`req method ${req.method}, to req url ${req.url}`), next();
 });
 
 //Lets the backend be called by the frontend without cors issues
 app.use(
-    cors({
-        origin: "http://localhost:5173",
-    })
+	cors({
+		origin: "http://localhost:5173",
+	})
 );
 
 //added rateLimiter before routes
 app.use(ratelimiter);
-
 
 //add the nodesRoutes to the api
 app.use("/api/notes", notesRoutes);
 
 //Connect to database, then start the connection in express
 connectDB().then(() => {
-    app.listen(port, () => {
-        console.log(`this is running on port: ${port}`);
-    });
+	app.listen(port, () => {
+		console.log(`this is running on port: ${port}`);
+	});
 });
