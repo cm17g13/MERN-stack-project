@@ -5,19 +5,19 @@ import mongoose from "mongoose";
 
 // the formats of the data stored in mongodb
 const noteSchema = new mongoose.Schema(
-    {
-        title: {
-            type: String,
-            required: true,
-        },
-        content: {
-            type: String,
-            required: true,
-        }
-    },
-    { timestamps: true }
+	{
+		title: {
+			type: String,
+			required: true,
+		},
+		content: {
+			type: String,
+			required: true,
+		},
+	},
+	{ timestamps: true }
 );
 
-const Note = mongoose.model("Note", noteSchema)
+const Note = mongoose.model("Note", noteSchema);
 
 export default Note;
